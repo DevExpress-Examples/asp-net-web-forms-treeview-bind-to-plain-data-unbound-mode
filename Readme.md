@@ -10,6 +10,24 @@
 
 This example demonstrates how to bind [ASPxTreeView](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTreeView) to data stored in DataTable. Nodes are created in [unbound mode](https://docs.devexpress.com/AspNet/3978/components/tree-list/concepts/binding-to-data/unbound-mode).
 
+```csharp
+protected void Page_Load(object sender, EventArgs e) {
+    DataTable table = GetDataTable();
+    if (!IsPostBack)
+        CreateTreeViewNodesRecursive(table, this.treeView.Nodes, "0");
+}
+
+private void CreateTreeViewNodesRecursive(DataTable table, TreeViewNodeCollection nodesCollection, string parentID) {
+    for (int i = 0; i < table.Rows.Count; i++) {
+        if (table.Rows[i]["ParentID"].ToString() == parentID) {
+            TreeViewNode node = new TreeViewNode(table.Rows[i]["Title"].ToString(), table.Rows[i]["ID"].ToString());
+            nodesCollection.Add(node);
+            CreateTreeViewNodesRecursive(table, node.Nodes, node.Name);
+        }
+    }
+}
+```
+
 ## Files to Review
 
 * [Default.aspx](./CS/WebSite/Default.aspx) (VB: [Default.aspx](./VB/WebSite/Default.aspx))
