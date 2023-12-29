@@ -5,9 +5,6 @@
 <!-- default badges end -->
 
 # Tree View for ASP.NET Web Forms - How to bind the tree to plain data (Unbound mode)
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128563716/)**
-<!-- run online end -->
 
 This example demonstrates how to bind [ASPxTreeView](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTreeView) to data stored in DataTable. Nodes are created in [unbound mode](https://docs.devexpress.com/AspNet/3978/components/tree-list/concepts/binding-to-data/unbound-mode).
 
